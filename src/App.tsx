@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import "./index.css";
+import "./styles.css";
 
 import { Product } from "./components/Product";
 import { AddProduct } from "./components/AddProduct";

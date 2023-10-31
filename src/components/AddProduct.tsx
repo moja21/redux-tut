@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import "../styles.css";
 type Props = {
   saveProduct: (product: IProduct | any) => void;
 };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dispatch } from "react";
 import { useDispatch } from "react-redux";
-
+import "../styles.css";
 type Props = {
   product: IProduct;
   removeProduct: (product: IProduct) => void;
