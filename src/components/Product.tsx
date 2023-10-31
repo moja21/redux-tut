@@ -18,9 +18,9 @@ export const Product: React.FC<Props> = ({ product, removeProduct }) => {
     <div className="Product">
       <div>
         <h1>{product.name}</h1>
-        <p>{product.price}</p>
+        <p>{product.price} $</p>
       </div>
-      <button onClick={() => deleteProduct(product)}>Delete Product</button>
+      <button onClick={() => deleteProduct(product)}>Delete</button>
     </div>
   );
 };
