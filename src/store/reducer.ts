@@ -1,4 +1,4 @@
-import { createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as actionTypes from "./actionTypes";
 import { addProduct } from "./actionCreators";
 
@@ -16,20 +16,15 @@ const initialState: ProductState = {
     },
   ],
 };
-export const fetchProducts = createAsyncThunk(
-  "products/fetch",
-  async (thunkAPI) => {
-    const response = await await fetch(
-      "https://usman-fake-api.herokuapp.com/api/products/65423910f0e8a300146b1ea9",
-      {
-        method: "GET",
-      }
-    );
-    let data: IProduct = response.json();
-    addProduct(data);
-    return data;
-  }
-);
+export const fetchProducts = createAsyncThunk("products/fetch", async () => {
+  const response = await fetch(
+    "https://usman-fake-api.herokuapp.com/api/products/6542508078f1b80014806f0c"
+  );
+  const data = await response.json();
+  addProduct(data);
+  console.log(data);
+  return data;
+});
 const reducer = (
   state: ProductState = initialState,
   action: ProductAction
@@ -55,7 +50,6 @@ const reducer = (
       };
   }
   const productList = fetchProducts;
-
   return state;
 };
 
