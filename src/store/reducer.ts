@@ -3,12 +3,12 @@ import * as actionTypes from "./actionTypes";
 const initialState: ProductState = {
   products: [
     {
-      id: 1,
+      _id: "1",
       name: "book",
       price: 520,
     },
     {
-      id: 2,
+      _id: "1",
       name: "straw",
       price: 2,
     },
@@ -22,7 +22,7 @@ const reducer = (
   switch (action.type) {
     case actionTypes.ADD_PRODUCT:
       const newProduct: IProduct = {
-        id: Math.random(),
+        _id: action.product._id,
         name: action.product.name,
         price: action.product.price,
       };
@@ -32,7 +32,7 @@ const reducer = (
       };
     case actionTypes.REMOVE_PRODUCT:
       const updateProducts: IProduct[] = state.products.filter(
-        (product) => product.id !== action.product.id
+        (product) => product._id !== action.product._id
       );
       return {
         ...state,
