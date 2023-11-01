@@ -9,7 +9,9 @@ import { Dispatch } from "react";
 
 const fetchProducts = async () =>
   await (
-    await fetch("https://usman-fake-api.herokuapp.com/api/products")
+    await fetch(
+      "https://hub.dummyapis.com/products?noofRecords=10&idStarts=1001&currency=usd"
+    )
   ).json();
 
 const App: React.FC = () => {
@@ -34,9 +36,16 @@ const App: React.FC = () => {
     <main>
       <h1>List of Products</h1>
       <AddProduct saveProduct={saveProduct} />
+      {products.map((product: IProduct) => (
+        <Product
+          key={product.id}
+          product={product}
+          removeProduct={removeProduct}
+        />
+      ))}
       {data?.map((product: IProduct) => (
         <Product
-          key={product._id}
+          key={product.id}
           product={product}
           removeProduct={removeProduct}
         />

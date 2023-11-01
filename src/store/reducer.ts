@@ -3,14 +3,14 @@ import * as actionTypes from "./actionTypes";
 const initialState: ProductState = {
   products: [
     {
-      _id: "1",
+      id: 1,
       name: "book",
-      price: 520,
+      price: "520",
     },
     {
-      _id: "1",
+      id: 222,
       name: "straw",
-      price: 2,
+      price: "2",
     },
   ],
 };
@@ -22,7 +22,7 @@ const reducer = (
   switch (action.type) {
     case actionTypes.ADD_PRODUCT:
       const newProduct: IProduct = {
-        _id: action.product._id,
+        id: action.product.id,
         name: action.product.name,
         price: action.product.price,
       };
@@ -32,7 +32,7 @@ const reducer = (
       };
     case actionTypes.REMOVE_PRODUCT:
       const updateProducts: IProduct[] = state.products.filter(
-        (product) => product._id !== action.product._id
+        (product) => product.id !== action.product.id
       );
       return {
         ...state,

@@ -33,6 +33,7 @@ export const AddProduct: React.FC<Props> = ({ saveProduct }) => {
         placeholder="Item Price"
         onChange={handleProductData}
       />
+
       <button disabled={product === undefined ? true : false}>
         Add Product
       </button>
